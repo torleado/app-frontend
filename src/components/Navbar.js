@@ -14,7 +14,7 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>Torleado App</h1>
+          <h1>Torleado — Influencer Marketing Platform</h1>
         </Link>
         <nav>
           {user && (
