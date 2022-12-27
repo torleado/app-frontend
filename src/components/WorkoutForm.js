@@ -13,7 +13,7 @@ const WorkoutForm = () => {
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    // e.preventDefault()
 
     if (!user) {
       setError('You must be logged in')
