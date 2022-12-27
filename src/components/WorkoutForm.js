@@ -6,6 +6,7 @@ const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext()
   const { user } = useAuthContext()
 
+  const [legs, setLegs] = useState('')
   const [title, setTitle] = useState('')
   const [load, setLoad] = useState('')
   const [reps, setReps] = useState('')
@@ -13,14 +14,14 @@ const WorkoutForm = () => {
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
-    // e.preventDefault()
+    e.preventDefault()
 
     if (!user) {
       setError('You must be logged in')
       return
     }
 
-    const workout = {title, load, reps}
+    const workout = {legs, title, load, reps}
 
     const response = await fetch('https://torleado.herokuapp.com/api/workouts', {
       method: 'POST',
@@ -37,6 +38,7 @@ const WorkoutForm = () => {
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
+      setLegs('')
       setTitle('')
       setLoad('')
       setReps('')
@@ -49,6 +51,15 @@ const WorkoutForm = () => {
   return (
     <form className="create" onSubmit={handleSubmit}>
       <h3>Add a New Workout</h3>
+
+      <label>Legs?</label>
+      <input 
+        type="text"
+        onChange={(e) => setLegs(e.target.value)}
+        value={legs}
+        className={emptyFields.includes('legs') ? 'error' : ''}
+      />
+
 
       <label>Excersize Title:</label>
       <input 
