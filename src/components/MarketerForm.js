@@ -56,7 +56,7 @@ const MarketerForm = () => {
       <label>Marketer Name:</label>
       <input
         type="text"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitleMarketer(e.target.value)}
         value={titleMarketer}
         className={emptyFields.includes("titleMarketer") ? "error" : ""}
       />
@@ -64,7 +64,7 @@ const MarketerForm = () => {
       <label>Load (in kg):</label>
       <input
         type="number"
-        onChange={(e) => setLoad(e.target.value)}
+        onChange={(e) => setLoadMarketer(e.target.value)}
         value={loadMarketer}
         className={emptyFields.includes("loadMarketer") ? "error" : ""}
       />
@@ -72,7 +72,7 @@ const MarketerForm = () => {
       <label>Reps:</label>
       <input
         type="number"
-        onChange={(e) => setReps(e.target.value)}
+        onChange={(e) => setRepsMarketerPrice(e.target.value)}
         value={repsMarketerPrice}
         className={emptyFields.includes("repsMarketerPrice") ? "error" : ""}
       />
